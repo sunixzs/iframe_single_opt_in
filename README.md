@@ -57,7 +57,7 @@ Example script:
 </script>
 ```
 
-### Interface
+## Interface
 
 ```js
 /**
@@ -70,7 +70,7 @@ Example script:
 IframeSingleOptIn(container, service, iframeMarkup, (isUrlEncoded = false), (params = {}));
 ```
 
-### Params
+## Params
 
 | Param            | Type     | Default                                                                    | Description                                            |
 | ---------------- | -------- | -------------------------------------------------------------------------- | ------------------------------------------------------ |
