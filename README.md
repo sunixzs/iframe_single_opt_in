@@ -72,14 +72,15 @@ IframeSingleOptIn(container, service, iframeMarkup, (isUrlEncoded = false), (par
 
 ### Params
 
-| Param            | Type     | Default                                                                    | Description                                                                   |
-| ---------------- | -------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `cssClass`       | `string` | 'isoi'                                                                     | CSS-class prefix for the created elements.                                    |
-| `title`          | `string` | 'External video' or 'External map'                                         | Type relational visible title translated to DE or EN.                         |
-| `serviceUrlText` | `string` | 'more information'                                                         | Visible text for the data privacy link of the service. Translated to DE or EN |
-| `showText`       | `string` | 'show {SERVICE_NAME} video'                                                | Type relational visible button text translated to DE or EN.                   |
-| `info`           | `string` | 'By loading this resource you agree the privacy policy of {SERVICE_NAME}.' | Type relational visible info text translated to DE or EN.                     |
+| Param            | Type     | Default                                                                    | Description                                            |
+| ---------------- | -------- | -------------------------------------------------------------------------- | ------------------------------------------------------ |
+| `cssClass`       | `string` | 'isoi'                                                                     | CSS-class prefix for the created elements.             |
+| `title`          | `string` | 'External video' or 'External map'                                         | Type relational visible title.                         |
+| `serviceUrlText` | `string` | 'more information'                                                         | Visible text for the data privacy link of the service. |
+| `showText`       | `string` | 'show {SERVICE_NAME} video'                                                | Type relational visible button text.                   |
+| `info`           | `string` | 'By loading this resource you agree the privacy policy of {SERVICE_NAME}.' | Type relational visible info text.                     |
 
+> Texts for english and german are built in. Use `params` to override them. The language will be determined by reading the `lang`-attribute of the `html`-tag (`de` for german and others for english).
 
 ## Build in CSS
 
@@ -87,17 +88,17 @@ Set `class="isoi"` to the container. `isoi` creates the basic structure.
 
 You should add one of the following classes as 'theme':
 
-* `isoi--dark` for a dark UI.
-* `isoi--light` for a light UI.
+-   `isoi--dark` for a dark UI.
+-   `isoi--light` for a light UI.
 
 If you would like to set a predefined ratio, add these classes:
 
-* `isoi--ratio isoi--ratio-16by9`
-* `isoi--ratio isoi--ratio-3by2`
-* `isoi--ratio isoi--ratio-1by1`
+-   `isoi--ratio isoi--ratio-16by9`
+-   `isoi--ratio isoi--ratio-3by2`
+-   `isoi--ratio isoi--ratio-1by1`
 
 A complete set could be:
 
-``` html
+```html
 <div class="isoi isoi--dark isoi--ratio isoi--16by9"></div>
 ```
