@@ -1,0 +1,50 @@
+{
+    "name": "iframe_single_optin",
+    "version": "1.0.0",
+    "description": "Single opt-in for iframe resources like google maps, youtube and vimeo.",
+    "main": "gulpfile.js",
+    "license": "MIT",
+    "scripts": {
+        "build": "gulp",
+        "build:typescript": "gulp ts",
+        "build:styles": "gulp scss",
+        "watch": "gulp watch",
+        "watch:typescript": "gulp watch_ts",
+        "watch:styles": "gulp watch_scss"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.6.0",
+        "@babel/preset-env": "^7.6.0",
+        "autoprefixer": "^10.0.1",
+        "babel-core": "^6.26.3",
+        "babel-preset-es2015": "^6.24.1",
+        "babelify": "8",
+        "browserify": "^17.0.0",
+        "dart-sass": "^1.25.0",
+        "glob": "^7.1.4",
+        "gulp": "^4.0.2",
+        "gulp-babel": "^8.0.0-beta.2",
+        "gulp-color": "^0.0.2",
+        "gulp-load-plugins": "^2.0.5",
+        "gulp-postcss": "^9.0.0",
+        "gulp-sass": "^4.1.0",
+        "gulp-typescript": "^6.0.0-alpha.1",
+        "gulp-uglify": "^3.0.2",
+        "gulp-watch": "^5.0.1",
+        "merge-stream": "^2.0.0",
+        "path": "^0.12.7",
+        "postcss": "^8.1.4",
+        "tsify": "^5.0.2",
+        "typescript": "^4.0.3",
+        "vinyl-buffer": "^1.0.1",
+        "vinyl-source-stream": "^2.0.0",
+        "watchify": "^3.11.1"
+    },
+    "browserslist": [
+        "last 4 version",
+        "> 5%",
+        "> 1% in DE",
+        "ie 10",
+        "ie 9"
+    ]
+}

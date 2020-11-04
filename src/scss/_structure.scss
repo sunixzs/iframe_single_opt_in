@@ -1,0 +1,93 @@
+.#{$prefix} {
+    position: relative;
+    height: 400px;
+
+    &--ratio {
+        width: 100%;
+        height: 0;
+    }
+
+    &--16by9 {
+        padding-bottom: 100% / 16 * 9;
+    }
+
+    &--3by2 {
+        padding-bottom: 100% / 3 * 2;
+    }
+
+    &--1by1 {
+        padding-bottom: 100%;
+    }
+
+    iframe {
+        position: absolute;
+        top: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.#{$prefix} {
+    &__stage {
+        // container for all
+        position: absolute;
+        font-size: 15px;
+        line-height: 1.3;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    &__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    &__interface {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        max-width: 15em;
+        transform: translate(-50%, -50%);
+        padding: 0.5em;
+        border-radius: 0.5em;
+        text-align: center;
+    }
+
+    &__title {
+        font-weight: bold;
+    }
+
+    &__info {
+        font-size: 80%;
+        text-align: left;
+    }
+
+    &__privacy-link {
+        font-size: 70%;
+        margin-top: 0.5em;
+    }
+
+    &__privacy-link__anchor {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    &__button {
+        font-size: 70%;
+        display: inline-block;
+        font-weight: bold;
+        margin-top: 0.5em;
+        padding: 0.5em;
+        border-radius: 0.5em;
+        cursor: pointer;
+    }
+}

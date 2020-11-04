@@ -1,0 +1,21 @@
+.#{$prefix}--dark {
+    .#{$prefix} {
+        &__background {
+            background-color: black;
+        }
+
+        &__interface {
+            background-color: rgba(white, 0.9);
+            color: black;
+        }
+
+        &__privacy-link__anchor {
+            color: black;
+        }
+
+        &__button {
+            background-color: red;
+            color: white;
+        }
+    }
+}

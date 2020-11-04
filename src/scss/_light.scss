@@ -1,0 +1,21 @@
+.#{$prefix}--light {
+    .#{$prefix} {
+        &__background {
+            background-color: white;
+        }
+
+        &__interface {
+            background-color: rgba(black, 0.9);
+            color: white;
+        }
+
+        &__privacy-link__anchor {
+            color: white;
+        }
+
+        &__button {
+            background-color: red;
+            color: white;
+        }
+    }
+}
