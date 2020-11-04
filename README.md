@@ -6,10 +6,10 @@ JavaScript and CSS-styles to get an opt-in for iframe resources like YouTube, VI
 
 Include the stylesheet located in `dist/css/styles.css` or write your own.
 
-There are two ways to include the script in a webpage:
+There are at least two ways to include the script in a webpage:
 
 1. Include script `dist/js/iframe-single-opt-in-init.js` in the bottom of the page and let the script find the elements by attribute `data-toggle="iframe-single-opt-in"`.
-2. Include script `dist/js/iframe-single-opt-in-init.js` in the head section of the page and make instances.
+2. Include script `dist/js/iframe-single-opt-in.js` in the head section of the page and make instances.
 
 ### (1) Let the script find the elements.
 
@@ -36,16 +36,14 @@ An example markup could look like this:
     data-service="youtube"
     data-iframe-markup="%3Ciframe[...]iframe%3E"
     data-is-urlencoded="true"
->
-    >
-</div>
+></div>
 ```
 
 ### (2) Make instances
 
 The script is bind to `window.IframeSingleOptIn`.
 
-Example script
+Example script:
 
 ```html
 <div class="isoi isoi-dark isoi-ratio isoi-16by9" id="isoi-example"></div>
@@ -90,7 +88,7 @@ Set `class="isoi"` to the container. `isoi` creates the basic structure.
 You should add one of the following classes as 'theme':
 
 * `isoi--dark` for a dark UI.
-* `isoi--light` for a dark UI.
+* `isoi--light` for a light UI.
 
 If you would like to set a predefined ratio, add these classes:
 
