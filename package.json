@@ -1,7 +1,10 @@
 {
     "name": "iframe_single_optin",
-    "version": "1.0.0",
+    "version": "1.0.1",
+    "homepage": "https://github.com/sunixzs/iframe_single_opt_in",
     "description": "Single opt-in for iframe resources like google maps, youtube and vimeo.",
+    "author": "sunixzs (https://github.com/sunixzs)",
+    "repository": "sunixzs/iframe_single_opt_in",
     "main": "gulpfile.js",
     "license": "MIT",
     "scripts": {
