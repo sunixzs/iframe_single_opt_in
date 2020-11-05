@@ -2,6 +2,33 @@
 
 JavaScript and CSS-styles to get an opt-in for iframe resources like YouTube, VIMEO and Google Maps.
 
+## Install
+
+1. github  
+
+```sh
+git clone https://github.com/sunixzs/iframe_single_opt_in.git
+```  
+
+or as submodule:  
+
+```sh
+git init submodule
+git submodule add https://github.com/sunixzs/iframe_single_opt_in.git path/to/be
+```
+
+2. NPM
+
+```sh
+npm i iframe_single_optin
+```
+
+or 
+
+```sh
+yarn add iframe_single_optin
+```
+
 ## Add to page
 
 Include the stylesheet located in `dist/css/styles.css` or write your own.
