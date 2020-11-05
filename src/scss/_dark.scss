@@ -1,4 +1,6 @@
 .#{$prefix}--dark {
+    background-color: #333;
+
     .#{$prefix} {
         &__background {
             background-color: black;
@@ -16,6 +18,14 @@
         &__button {
             background-color: red;
             color: white;
+            box-shadow: 0 0 7px rgba(black, 0.4);
+            transition: all ease-in-out 0.3s;
+
+            &:hover {
+                background-color: darken(red, 5%);
+                color: darken(white, 5%);
+                box-shadow: 0 0 3px rgba(black, 0.4) inset;
+            }
         }
     }
 }

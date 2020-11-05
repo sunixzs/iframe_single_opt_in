@@ -1,21 +1,30 @@
 .#{$prefix}--light {
     .#{$prefix} {
         &__background {
-            background-color: white;
+            background-color: rgb(black, 0.05);
         }
 
         &__interface {
-            background-color: rgba(black, 0.9);
-            color: white;
+            background-color: rgba(black, 0.1);
+            color: black;
+            box-shadow: 0 0 18px rgba(black, 0.3);
         }
 
         &__privacy-link__anchor {
-            color: white;
+            color: black;
         }
 
         &__button {
             background-color: red;
             color: white;
+            box-shadow: 0 0 7px rgba(black, 0.4);
+            transition: all ease-in-out 0.3s;
+
+            &:hover {
+                background-color: darken(red, 5%);
+                color: darken(white, 5%);
+                box-shadow: 0 0 3px rgba(black, 0.4) inset;
+            }
         }
     }
 }

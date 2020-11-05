@@ -101,7 +101,8 @@ export class IframeSingleOptIn {
         this._container = container;
         this._service = service;
         this._serviceName = findServiceNameByType(this._service);
-        this._serviceUrl = findServiceUrlByType(this._service);
+        this._serviceUrl =
+            params && params.serviceUrl ? params.serviceUrl : findServiceUrlByType(this._service);
 
         if (!(this._serviceName && this._serviceUrl)) {
             console.error(
@@ -132,20 +133,15 @@ export class IframeSingleOptIn {
                 SERVICE_NAME: this._serviceName,
             });
         this._infoText =
-            (params && params.info) ||
-            this._language.get("infoText", { SERVICE_NAME: this._serviceName });
+            (params && params.infoText) ||
+            this._language.get(isVideo ? "infoTextVideo" : "infoTextMap");
 
         this._init();
     }
 
     private _init(): void {
         // container for all
-        this._stage = this._createElement(
-            "DIV",
-            this._cssClass + "__stage",
-            "",
-            this._container
-        );
+        this._stage = this._createElement("DIV", this._cssClass + "__stage", "", this._container);
 
         // background
         this._background = this._createElement(

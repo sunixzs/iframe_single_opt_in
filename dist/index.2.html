@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 2</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 1em;
+        }
+
+        .isoi {
+            margin-top: 1em;
+        }
+
+        .caption {
+            margin-top: 0.5em;
+        }
+
+        @media (min-width: 50rem) {
+            body {
+                width: 70vw;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .narrow {
+                width: 50vw;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/iframe-single-opt-in.css">
+</head>
+
+<body>
+    <div class="narrow">
+        <div id="srv1" class="isoi isoi--light isoi--ratio isoi--4by3"></div>
+        <div class="caption">
+            <a href="https://vimeo.com/82163037">Stevie Ray Vaughan - Mary Had a Little Lamb</a> from <a href="https://vimeo.com/user23565732">guitarbox.ru</a> on <a href="https://vimeo.com">Vimeo</a>.
+        </div>
+    </div>
+
+    <div id="srv2" class="isoi isoi--light isoi--ratio isoi--16by9"></div>
+    <div class="caption">
+        <a href="https://www.youtube.com/watch?v=grBmQwLSlDw">Stevie Ray Vaughan - Best Guitar Player - Sound Check - What?!</a> from <a href="https://www.youtube.com/channel/UCTiky56lzcm-TubEJcRZNfQ">Bobby D</a> on <a href="https://youtube.com">YouTube</a>.
+    </div>
+
+    <div id="bp" class="isoi isoi--light isoi--ratio isoi--16by9"></div>
+    <div class="caption">Buckingham Palace on Google Maps</div>
+
+    <script src="js/iframe-single-opt-in.js"></script>
+    <script>
+        new IframeSingleOptIn(
+            document.querySelector("#srv1"),
+            "vimeo",
+            `<iframe src="https://player.vimeo.com/video/82163037" width="640" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`
+        );
+
+        new IframeSingleOptIn(
+            document.querySelector("#srv2"),
+            "youtube",
+            `<iframe width="560" height="315" src="https://www.youtube.com/embed/grBmQwLSlDw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+        );
+
+        new IframeSingleOptIn(
+            document.querySelector("#bp"),
+            "googlemaps",
+            `%3Ciframe%20src%3D%22https%3A%2F%2Fwww.google.com%2Fmaps%2Fembed%3Fpb%3D%211m18%211m12%211m3%211d2349.708832214125%212d-0.1427040218788837%213d51.50125078933144%212m3%211f0%212f0%213f0%213m2%211i1024%212i768%214f13.1%213m3%211m2%211s0x48760520cd5b5eb5%253A0xa26abf514d902a7%212sBuckingham%2520Palace%215e1%213m2%211sde%212sde%214v1604606306208%215m2%211sde%212sde%22%20width%3D%22600%22%20height%3D%22450%22%20frameborder%3D%220%22%20style%3D%22border%3A0%3B%22%20allowfullscreen%3D%22%22%20aria-hidden%3D%22false%22%20tabindex%3D%220%22%3E%3C%2Fiframe%3E`,
+            true
+        );
+    </script>
+</body>
+
+</html>

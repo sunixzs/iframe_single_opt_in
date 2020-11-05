@@ -31,7 +31,7 @@ An example markup could look like this:
 
 ```html
 <div
-    class="isoi isoi-dark isoi-ratio isoi-16by9"
+    class="isoi isoi--dark isoi--ratio isoi--16by9"
     data-toggle="iframe-single-opt-in"
     data-service="youtube"
     data-iframe-markup="%3Ciframe[...]iframe%3E"
@@ -46,7 +46,7 @@ The script is bind to `window.IframeSingleOptIn`.
 Example script:
 
 ```html
-<div class="isoi isoi-dark isoi-ratio isoi-16by9" id="isoi-example"></div>
+<div class="isoi isoi--dark isoi--ratio isoi--16by9" id="isoi-example"></div>
 <script>
     new IframeSingleOptIn(
         document.querySelector("#isoi-example"),
@@ -78,7 +78,8 @@ IframeSingleOptIn(container, service, iframeMarkup, (isUrlEncoded = false), (par
 | `title`          | `string` | 'External video' or 'External map'                                         | Type relational visible title.                         |
 | `serviceUrlText` | `string` | 'more information'                                                         | Visible text for the data privacy link of the service. |
 | `showText`       | `string` | 'show {SERVICE_NAME} video'                                                | Type relational visible button text.                   |
-| `info`           | `string` | 'By loading this resource you agree the privacy policy of {SERVICE_NAME}.' | Type relational visible info text.                     |
+| `infoText`       | `string` | 'By loading this resource you agree the privacy policy of {SERVICE_NAME}.' | Type relational visible info text.                     |
+| `serviceUrl`     | `string` | 'http://[vimeo.com\|youtube.com\|maps.google.com]...'                      | Data privay URI of the service.                        |
 
 > Texts for english and german are built in. Use `params` to override them. The language will be determined by reading the `lang`-attribute of the `html`-tag (`de` for german and others for english).
 
@@ -86,7 +87,7 @@ IframeSingleOptIn(container, service, iframeMarkup, (isUrlEncoded = false), (par
 
 Set `class="isoi"` to the container. `isoi` creates the basic structure.
 
-You should add one of the following classes as 'theme':
+You could add one of the following classes as 'theme':
 
 -   `isoi--dark` for a dark UI.
 -   `isoi--light` for a light UI.
@@ -95,6 +96,7 @@ If you would like to set a predefined ratio, add these classes:
 
 -   `isoi--ratio isoi--ratio-16by9`
 -   `isoi--ratio isoi--ratio-3by2`
+-   `isoi--ratio isoi--ratio-4by3`
 -   `isoi--ratio isoi--ratio-1by1`
 
 A complete set could be:
@@ -102,3 +104,7 @@ A complete set could be:
 ```html
 <div class="isoi isoi--dark isoi--ratio isoi--16by9"></div>
 ```
+
+## Examples
+
+There are two examples in <a href="./dist/index.1.html">./dist/index.1.html</a> and <a href="./dist/index.2.html">./dist/index.2.html</a>.
