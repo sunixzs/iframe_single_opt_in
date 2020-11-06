@@ -63,7 +63,7 @@ An example markup could look like this:
 ></div>
 ```
 
-### (2) Make instances of `IframeSingleOptIn()`
+### 2. Make instances of `IframeSingleOptIn()`
 
 Include script `./dist/js/iframe-single-opt-in.js` in the head section of the page (or just before calling `IframeSingleOptIn`). The script is bind to `window.IframeSingleOptIn`.
 
@@ -108,7 +108,7 @@ To urlencode the iframe markup you may use https://www.urlencoder.org/ which wor
 | `cssClass`       | `string` | 'isoi'                                                                     | CSS-class prefix for the created elements.                                                                                                              |
 | `language`       | `object` | {languageKey: { titleText:'Hey user', [...]}}                              | Another way to override the texts. `languageKey` will be set as current language. Have a look at `./src/ts/Language/LanguageData.default.ts` for the text keys. |
 
-Texts for english and german are built in. Use `params.*Text` to override them. The language will be determined by reading the `lang`-attribute of the `html`-tag (`de` for german and others for english).
+Texts for english and german are built in. Use `params.*Text` to override some of them. The language will be determined by reading the `lang`-attribute of the `html`-tag (`de` for german and others for english).
 
 There is another way to override a complete language set by using `params.language`. There is an example at the end of this page.
 
@@ -136,7 +136,7 @@ A complete set could be:
 
 ## Examples
 
-There are two examples in <a href="./dist/example.data-attribute.html">./dist/example.data-attribute.html</a>, <a href="./dist/example.instance.html">./dist/example.instance.html</a> and <a href="./dist/example.override-language.html">./dist/example.override-language.html</a>.
+There are some examples in <a href="./dist/example.data-attribute.html">./dist/example.data-attribute.html</a>, <a href="./dist/example.instance.html">./dist/example.instance.html</a> and <a href="./dist/example.override-language.html">./dist/example.override-language.html</a>.
 
 ### Another service
 
