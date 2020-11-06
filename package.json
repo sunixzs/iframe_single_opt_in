@@ -15,6 +15,16 @@
         "watch:typescript": "gulp watch_ts",
         "watch:styles": "gulp watch_scss"
     },
+    "keywords": [
+        "HTML",
+        "JavaScript",
+        "TypeScript",
+        "iframe",
+        "opt-in",
+        "optin",
+        "DSGVO",
+        "GDPR"
+    ],
     "devDependencies": {
         "@babel/core": "^7.6.0",
         "@babel/preset-env": "^7.6.0",
