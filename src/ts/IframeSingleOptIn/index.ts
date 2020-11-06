@@ -84,7 +84,7 @@ export class IframeSingleOptIn {
     // visible texts
     private _titleText: string;
     private _serviceUrlText: string;
-    private _showVideoText: string;
+    private _showText: string;
     private _infoText: string;
 
     // class prefix for the elements
@@ -102,7 +102,9 @@ export class IframeSingleOptIn {
         this._service = service;
         this._serviceName = findServiceNameByType(this._service);
         this._serviceUrl =
-            params && params.serviceUrl ? params.serviceUrl : findServiceUrlByType(this._service);
+            params && typeof params.serviceUrl === "string"
+                ? params.serviceUrl
+                : findServiceUrlByType(this._service);
 
         if (!(this._serviceName && this._serviceUrl)) {
             console.error(
@@ -120,21 +122,36 @@ export class IframeSingleOptIn {
             this._cssClass = params.cssClass;
         }
 
+        // override language?
+        if (params && typeof params.language === "object") {
+            Object.keys(params.language).forEach((languageKey) => {
+                this._language.data[languageKey] = params.language[languageKey];
+                this._language.setLanguageKey(languageKey);
+            });
+        }
+
         // texts
         let isVideo = this._service === "googlemaps" ? false : true;
+        let replacements = {
+            SERVICE_NAME: this._serviceName,
+            SERVICE_URL: this._serviceUrl,
+        };
         this._titleText =
-            (params && params.title) ||
-            this._language.get(isVideo ? "titleTextVideo" : "titleTextMap");
+            params && typeof params.titleText === "string"
+                ? params.titleText
+                : this._language.get(isVideo ? "titleTextVideo" : "titleTextMap", replacements);
         this._serviceUrlText =
-            (params && params.serviceUrlText) || this._language.get("serviceUrlText");
-        this._showVideoText =
-            (params && params.showText) ||
-            this._language.get(isVideo ? "showTextVideo" : "showTextMap", {
-                SERVICE_NAME: this._serviceName,
-            });
+            params && typeof params.serviceUrlText === "string"
+                ? params.serviceUrlText
+                : this._language.get("serviceUrlText", replacements);
+        this._showText =
+            params && typeof params.showText === "string"
+                ? params.showText
+                : this._language.get(isVideo ? "showTextVideo" : "showTextMap", replacements);
         this._infoText =
-            (params && params.infoText) ||
-            this._language.get(isVideo ? "infoTextVideo" : "infoTextMap");
+            params && typeof params.infoText === "string"
+                ? params.infoText
+                : this._language.get(isVideo ? "infoTextVideo" : "infoTextMap", replacements);
 
         this._init();
     }
@@ -160,34 +177,45 @@ export class IframeSingleOptIn {
         );
 
         // title
-        this._createElement("DIV", this._cssClass + "__title", this._titleText, interfaceElement);
+        if (this._titleText) {
+            this._createElement(
+                "DIV",
+                this._cssClass + "__title",
+                this._titleText,
+                interfaceElement
+            );
+        }
 
         // info text
-        this._createElement("DIV", this._cssClass + "__info", this._infoText, interfaceElement);
+        if (this._infoText) {
+            this._createElement("DIV", this._cssClass + "__info", this._infoText, interfaceElement);
+        }
 
         // privacy link
-        let privacyLinkElement = this._createElement(
-            "DIV",
-            this._cssClass + "__privacy-link",
-            "",
-            interfaceElement
-        );
+        if (this._serviceUrlText) {
+            let privacyLinkElement = this._createElement(
+                "DIV",
+                this._cssClass + "__privacy-link",
+                "",
+                interfaceElement
+            );
 
-        // concrete privacy link
-        let privacyLinkAnchorElement = this._createElement(
-            "A",
-            this._cssClass + "__privacy-link__anchor",
-            this._serviceUrlText,
-            privacyLinkElement
-        );
-        privacyLinkAnchorElement.setAttribute("href", this._serviceUrl);
-        privacyLinkAnchorElement.setAttribute("target", "_blank");
+            // concrete privacy link
+            let privacyLinkAnchorElement = this._createElement(
+                "A",
+                this._cssClass + "__privacy-link__anchor",
+                this._serviceUrlText,
+                privacyLinkElement
+            );
+            privacyLinkAnchorElement.setAttribute("href", this._serviceUrl);
+            privacyLinkAnchorElement.setAttribute("target", "_blank");
+        }
 
         // button
         this._button = this._createElement(
             "DIV",
             this._cssClass + "__button",
-            this._showVideoText,
+            this._showText,
             interfaceElement
         );
 

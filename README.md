@@ -4,26 +4,26 @@ JavaScript and CSS-styles to get an opt-in for iframe resources like YouTube, VI
 
 ## Install
 
-1. github  
+### github
 
 ```sh
 git clone https://github.com/sunixzs/iframe_single_opt_in.git
-```  
+```
 
-or as submodule:  
+or as submodule:
 
 ```sh
 git init submodule
 git submodule add https://github.com/sunixzs/iframe_single_opt_in.git path/to/be
 ```
 
-2. NPM
+### NPM
 
 ```sh
 npm i iframe_single_optin
 ```
 
-or 
+or
 
 ```sh
 yarn add iframe_single_optin
@@ -31,23 +31,20 @@ yarn add iframe_single_optin
 
 ## Add to page
 
-Include the stylesheet located in `dist/css/styles.css` or write your own.
+Include the stylesheet located in `./dist/css/iframe-single-opt-in.css` or write your own. Of course you also may include the sources in `./src/scss`.
 
 There are at least two ways to include the script in a webpage:
 
-1. Include script `dist/js/iframe-single-opt-in-init.js` in the bottom of the page and let the script find the elements by attribute `data-toggle="iframe-single-opt-in"`.
-2. Include script `dist/js/iframe-single-opt-in.js` in the head section of the page and make instances.
+### 1. Let the script find the elements / use `data-toggle="iframe-single-opt-in"`-attribute
 
-### (1) Let the script find the elements.
+Include script `./dist/js/iframe-single-opt-in-init.js` in the bottom of the page and let the script find the elements by attribute `data-toggle="iframe-single-opt-in"`.
 
-The script searches for elements with `data-toggle="iframe-single-opt-in"`-attributes.
-
-The following attributes must be set:
+The following attributes must further be set to the element:
 
 -   `data-service`  
     Either 'googlemaps', 'youtube' or 'vimeo'.
 -   `data-iframe-markup`  
-    The export iframe markup from the service. Either plain markup or urlencoded.
+    The export iframe markup of the service. Either plain markup or urlencoded. In all the services you find a share button. There is an option to embed into a webpage which produces an iframe tag. Just like you want to embed without opt-in.
 
 The following attribut is not required and defaults to `true`:
 
@@ -66,11 +63,11 @@ An example markup could look like this:
 ></div>
 ```
 
-### (2) Make instances
+### (2) Make instances of `IframeSingleOptIn()`
 
-The script is bind to `window.IframeSingleOptIn`.
+Include script `./dist/js/iframe-single-opt-in.js` in the head section of the page (or just before calling `IframeSingleOptIn`). The script is bind to `window.IframeSingleOptIn`.
 
-Example script:
+Example:
 
 ```html
 <div class="isoi isoi--dark isoi--ratio isoi--16by9" id="isoi-example"></div>
@@ -97,18 +94,23 @@ Example script:
 IframeSingleOptIn(container, service, iframeMarkup, (isUrlEncoded = false), (params = {}));
 ```
 
+To urlencode the iframe markup you may use https://www.urlencoder.org/ which worked for me.
+
 ## Params
 
-| Param            | Type     | Default                                                                    | Description                                            |
-| ---------------- | -------- | -------------------------------------------------------------------------- | ------------------------------------------------------ |
-| `cssClass`       | `string` | 'isoi'                                                                     | CSS-class prefix for the created elements.             |
-| `title`          | `string` | 'External video' or 'External map'                                         | Type relational visible title.                         |
-| `serviceUrlText` | `string` | 'more information'                                                         | Visible text for the data privacy link of the service. |
-| `showText`       | `string` | 'show {SERVICE_NAME} video'                                                | Type relational visible button text.                   |
-| `infoText`       | `string` | 'By loading this resource you agree the privacy policy of {SERVICE_NAME}.' | Type relational visible info text.                     |
-| `serviceUrl`     | `string` | 'http://[vimeo.com\|youtube.com\|maps.google.com]...'                      | Data privay URI of the service.                        |
+| Param            | Type     | Default                                                                    | Description                                                                                                                                             |
+| ---------------- | -------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `titleText`      | `string` | 'External video' or 'External map'                                         | Type relational visible title.                                                                                                                          |
+| `infoText`       | `string` | 'By loading this resource you agree the privacy policy of {SERVICE_NAME}.' | Type relational visible info text.                                                                                                                      |
+| `serviceUrlText` | `string` | 'more information'                                                         | Visible text for the data privacy link of the service.                                                                                                  |
+| `showText`       | `string` | 'show {SERVICE_NAME} video'                                                | Type relational visible button text.                                                                                                                    |
+| `serviceUrl`     | `string` | 'http://[vimeo.com\|youtube.com\|maps.google.com]...'                      | Data privay URI of the service.                                                                                                                         |
+| `cssClass`       | `string` | 'isoi'                                                                     | CSS-class prefix for the created elements.                                                                                                              |
+| `language`       | `object` | {languageKey: { titleText:'Hey user', [...]}}                              | Another way to override the texts. `languageKey` will be set as current language. Have a look at `./src/ts/Language/LanguageData.default.ts` for the text keys. |
 
-> Texts for english and german are built in. Use `params` to override them. The language will be determined by reading the `lang`-attribute of the `html`-tag (`de` for german and others for english).
+Texts for english and german are built in. Use `params.*Text` to override them. The language will be determined by reading the `lang`-attribute of the `html`-tag (`de` for german and others for english).
+
+There is another way to override a complete language set by using `params.language`. There is an example at the end of this page.
 
 ## Build in CSS
 
@@ -134,4 +136,52 @@ A complete set could be:
 
 ## Examples
 
-There are two examples in <a href="./dist/index.1.html">./dist/index.1.html</a> and <a href="./dist/index.2.html">./dist/index.2.html</a>.
+There are two examples in <a href="./dist/example.data-attribute.html">./dist/example.data-attribute.html</a>, <a href="./dist/example.instance.html">./dist/example.instance.html</a> and <a href="./dist/example.override-language.html">./dist/example.override-language.html</a>.
+
+### Another service
+
+The `service` parameter is only used to automatically use the build in texts. If you want to use another service, override the texts, but use one of the service names:
+
+```html
+<div class="isoi isoi--dark isoi--ratio isoi--16by9" id="isoi-another-service"></div>
+<script>
+    new IframeSingleOptIn(
+        document.querySelector("#isoi-another-service"),
+        'vimeo',
+        '<iframe src="https://another-one-bites-the.dust" [...]></iframe>'
+        false,
+        {
+            titleText: 'Queen: Another one bites the dust',
+            infoText: 'Maybe Queen makes you emotional, so we have to warn you before you load the stuff ;-)',
+            serviceUrlText: '',
+            showText: 'Let\'s rock'
+        }
+    );
+</script>
+```
+
+Here is another example using the `language` parameter. Supported markers are `{SERVICE_NAME}` and `{SERVICE_URL}`
+
+```html
+<div class="isoi isoi--dark isoi--ratio isoi--16by9" id="isoi-another-language"></div>
+<script>
+    let languageDeDu = {
+        titleTextMap: "Wir benötigen Deine Zustimmung für {SERVICE_NAME}",
+        serviceUrlText: "Datenschutzerklärung: {SERVICE_URL}",
+        showTextMap: "Zeig mir die Karte!",
+        infoTextMap: "Wir verwenden {SERVICE_NAME}. Ein Drittanbieter, um Karteninhalte einzubetten. Dieser Service kann Daten zu Deinen Aktivitäten sammeln. Bitte lese die Details durch und stimme der Nutzung zu, um die Karte anzuzeigen."
+    };
+
+    new IframeSingleOptIn(
+        document.querySelector("#isoi-another-language"),
+        "googlemaps",
+        `%3Ciframe[...]iframe%3E`,
+        true,
+        {
+            language: {
+                deDu: languageDeDu
+            }
+        }
+    );
+</script>
+```

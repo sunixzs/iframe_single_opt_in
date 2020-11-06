@@ -4,8 +4,8 @@ import { data as dataDefault } from "./LanguageData.default";
 import { data as dataDE } from "./LanguageData.de";
 
 export class Language {
-    languageKey: string;
-    data: any;
+    public languageKey: string;
+    public data: any;
 
     constructor() {
         let html = document.querySelector("html");
