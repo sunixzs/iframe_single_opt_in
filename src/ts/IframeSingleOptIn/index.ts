@@ -71,7 +71,7 @@ let findServiceUrlByType = (type: string): string | null => {
 export class IframeSingleOptIn {
     private _container: HTMLElement;
     private _service: string;
-    private _serviceName: string;
+    private _serviceName: string | null;
     private _serviceUrl: string;
     private _iframeMarkup: string;
     private _isUrlEncoded: boolean;
@@ -213,11 +213,13 @@ export class IframeSingleOptIn {
 
         // button
         this._button = this._createElement(
-            "DIV",
+            "BUTTON",
             this._cssClass + "__button",
             this._showText,
             interfaceElement
         );
+        this._button.setAttribute('title', this._showText);
+        this._button.setAttribute('type', 'button');
 
         // when button is clicked, replate the content with the iframe
         let _this = this;
